@@ -1,9 +1,14 @@
+{{!-- view to show burgers eaten/not eaten --}}
 <li>
 	{{#unless devoured}}
+		{{!-- burgers not eaten --}}
 		{{burger_name}}
 
-		<button class="change-devour" data-id="{{id}}" data-newdevour="{{devoured}}">
-			{{!-- {{#if devoured}}{{else}}Devour!{{/if}} --}}
+		<button type="button" class=" btn btn-info change-devour" data-id="{{id}}" data-newdevour="{{devoured}}">
+			{{#if devoured}}{{else}}Devour!{{/if}}
 		</button>
+	{{else}}
+		{{!-- burger eaten --}}
+		{{burger_name}}
 	{{/unless}}
 </li>

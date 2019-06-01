@@ -3,6 +3,7 @@ var router = express.Router();
 
 var burger = require("../models/burger.js");
 
+/* route upon hitting the main page. render hbsObject to our index page */
 router.get("/", function(req, res) {
   burger.selectAll(function(data) {
     var hbsObject = {
@@ -13,6 +14,7 @@ router.get("/", function(req, res) {
   });
 });
 
+/* how we handle a request to our api/burgers route. We insert a new burger to the database */
 router.post("/api/burgers", function(req, res) {
   burger.insertOne([
     "burger_name", "devoured"
@@ -23,6 +25,7 @@ router.post("/api/burgers", function(req, res) {
   });
 });
 
+/* how we handle a request to our api/burgers/:id route. We update the database with its devoured state */
 router.put("/api/burgers/:id", function(req,res) {
   var condition = "id = " + req.params.id;
 

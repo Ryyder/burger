@@ -41,6 +41,7 @@ function objToSql(ob) {
 
 //Object for all our SQL functions
 var orm = {
+  /* shows all burgers in the db */
   selectAll: function(table, cb) {
     var queryString = "SELECT * FROM " + table + ";";
     connection.query(queryString, function(err, result) {
@@ -48,6 +49,7 @@ var orm = {
       cb(result);
     });
   },
+  /* creates a new burger in the db */
   insertOne: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
@@ -65,6 +67,7 @@ var orm = {
       cb(result);
     });
   },
+  /* updates the state of the burger (devour/not devoured) in the db */
   updateOne: function(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 

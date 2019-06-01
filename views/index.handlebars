@@ -1,13 +1,17 @@
+{{!-- main picture and header --}}
 <div class="row">
-  <div class="col-12">
+  <div class="col-12 text-center">
+    <img src="burger.jpg" class="img-fluid" alt="burger">
     <h1>Eat-Da-Burger</h1>
   </div>
 </div>
 
+
 <div class="row">
+  {{!-- burgers not eaten --}}
   <div class="col-12 col-md-6">
     <h2>Burgers that are not devoured!</h2>
-    <ul>
+    <ul class="list-unstyled">
       {{#each burgers}}
         {{#unless devoured}}
           {{> burgers/burger-block devour=true}}
@@ -16,10 +20,10 @@
     </ul>
   </div>
 
-
+  {{!-- burgers eaten --}}
   <div class="col-12 col-md-6">
     <h2>Burgers that are devoured!</h2>
-    <ul>
+    <ul class="list-unstyled">
       {{#each burgers}}
         {{#if devoured}}
           {{> burgers/burger-block devour=false}}
@@ -30,6 +34,7 @@
 </div>
 
 <div class="row">
+  {{!-- add a burger --}}
   <div class="col-12">
     <h2>Add a burger</h2>
     <form class="create-form">
